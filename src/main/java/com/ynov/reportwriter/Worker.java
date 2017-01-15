@@ -4,7 +4,7 @@ package com.ynov.reportwriter;
  * Classe desigant un salarie. <br />
  * La classe est abstraite: on ne peut pas l'instancier (pas de "Worker worker = new Worker()").
  */
-public abstract class Worker {
+public abstract class Worker implements Printable {
     /*
 	 * ---------------------------------
 	 *		Propriétés
@@ -61,6 +61,7 @@ public abstract class Worker {
     /**
      * Affiche la description d'un salarie (prenom, nom).
      */
+    @Override
     public void print() {
         System.out.println(firstName+" "+getLastName());
     }
