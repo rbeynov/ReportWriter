@@ -1,15 +1,11 @@
 package com.ynov.reportwriter;
 
-public class Student {
+public class Student extends Worker {
     /*
 	 * ---------------------------------
 	 *		Propriétés
 	 * ---------------------------------
 	 */
-    /** Prénom. */
-    private String firstName;
-    /** Nom. */
-    private String lastName;
     /** Ecole. */
     private String school;
 
@@ -23,6 +19,9 @@ public class Student {
      * Constructeur par défaut.
      */
     public Student() {
+        // Appelle le constructeur par défault de Worker
+        // Cette instruction est systématiquement ajouté dans les constructeurs par défaut et il serait donc possible de s'en passer
+        super();
     }
 
     /**
@@ -35,8 +34,8 @@ public class Student {
      * 			Ecole de l'etudiant.
      */
     public Student(String firstName, String lastName, String school) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        // Appelle le constructeur surcharge de Worker
+        super(firstName, lastName);
         this.school = school;
     }
 
@@ -45,14 +44,6 @@ public class Student {
 	 *		Méthodes
 	 * ---------------------------------
 	 */
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName.toUpperCase();
-    }
 
     public String getSchool() {
         return school;
@@ -66,7 +57,8 @@ public class Student {
      * Affiche la description d'un etudiant (prenom, nom, ecole).
      */
     public void print() {
-        System.out.println(firstName+" "+getLastName());
+        // Appelle à la méthode parente de Worker pour une description du prénom et du nom.
+        super.print();
         System.out.println(school+" School");
     }
 }

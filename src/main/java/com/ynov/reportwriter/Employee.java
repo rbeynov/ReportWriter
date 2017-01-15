@@ -1,15 +1,11 @@
 package com.ynov.reportwriter;
 
-public class Employee {
+public class Employee extends Worker {
     /*
 	 * ---------------------------------
 	 *		Propriétés
 	 * ---------------------------------
 	 */
-    /** Prénom. */
-    private String firstName;
-    /** Nom. */
-    private String lastName;
     /** Salaire mensuel. */
     private long salary;
     /** Jours de vacances restants. */
@@ -26,7 +22,9 @@ public class Employee {
      * Constructeur par défault.
      */
     public Employee() {
-
+        // Appelle le constructeur par défault de Worker
+        // Cette instruction est systématiquement ajouté dans les constructeurs par défaut et il serait donc possible de s'en passer
+        super();
     }
 
     /**
@@ -41,8 +39,8 @@ public class Employee {
      * 			Nombre de jours de vacances restants.
      */
     public Employee(String firstName, String lastName, long salary, int holidays) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        // Appelle le constructeur surcharge de Worker
+        super(firstName, lastName);
         this.salary = salary;
         this.holidays = holidays;
     }
@@ -52,18 +50,6 @@ public class Employee {
 	 *		Méthodes
 	 * ---------------------------------
 	 */
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName.toUpperCase();
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public long getSalary() {
         return salary;
@@ -81,7 +67,8 @@ public class Employee {
      * Affiche la description d'un employe (prenom, nom, salaire, jours de vacances).
      */
     public void print() {
-        System.out.println(firstName+" "+getLastName());
+        // Appelle à la méthode parente de Worker pour une description du prénom et du nom.
+        super.print();
         System.out.println(salary+"€/month, "+holidays+" days");
     }
 }

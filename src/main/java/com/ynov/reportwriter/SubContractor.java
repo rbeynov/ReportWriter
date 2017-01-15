@@ -1,15 +1,11 @@
 package com.ynov.reportwriter;
 
-public class SubContractor {
+public class SubContractor extends Worker {
     /*
 	 * ---------------------------------
 	 *		Propriétés
 	 * ---------------------------------
 	 */
-    /** Prénom. */
-    private String firstName;
-    /** Nom. */
-    private String lastName;
     /** Taux journalier. */
     private long dailyRate;
 
@@ -23,6 +19,9 @@ public class SubContractor {
      * Constructeur par défaut.
      */
     public SubContractor() {
+        // Appelle le constructeur par défault de Worker
+        // Cette instruction est systématiquement ajouté dans les constructeurs par défaut et il serait donc possible de s'en passer
+        super();
     }
 
     /**
@@ -35,8 +34,8 @@ public class SubContractor {
      * 			Taux journalier.
      */
     public SubContractor(String firstName, String lastName, long dailyRate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
+        // Appelle le constructeur surcharge de Worker
+        super(firstName, lastName);
         this.dailyRate = dailyRate;
     }
 	/*
@@ -44,18 +43,6 @@ public class SubContractor {
 	 *		Méthodes
 	 * ---------------------------------
 	 */
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName.toUpperCase();
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
 
     public long getDailyRate() {
         return dailyRate;
@@ -65,7 +52,8 @@ public class SubContractor {
      * Affiche la description d'un sous traitant (prenom, nom, taux journalier).
      */
     public void print() {
-        System.out.println(firstName+" "+getLastName());
+        // Appelle à la méthode parente de Worker pour une description du prénom et du nom.
+        super.print();
         System.out.println(dailyRate+"€/day");
     }
 }
