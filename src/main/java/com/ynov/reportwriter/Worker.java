@@ -2,8 +2,9 @@ package com.ynov.reportwriter;
 
 /**
  * Classe desigant un salarie. <br />
+ * La classe est abstraite: on ne peut pas l'instancier (pas de "Worker worker = new Worker()").
  */
-public class Worker {
+public abstract class Worker {
     /*
 	 * ---------------------------------
 	 *		Propriétés
