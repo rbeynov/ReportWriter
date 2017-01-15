@@ -7,11 +7,11 @@ public class Student {
 	 * ---------------------------------
 	 */
     /** Prénom. */
-    String firstName;
+    private String firstName;
     /** Nom. */
-    String lastName;
+    private String lastName;
     /** Ecole. */
-    String school;
+    private String school;
 
 	/*
 	 * ---------------------------------
@@ -46,11 +46,27 @@ public class Student {
 	 * ---------------------------------
 	 */
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName.toUpperCase();
+    }
+
+    public String getSchool() {
+        return school;
+    }
+
+    public void setSchool(String school) {
+        this.school = school;
+    }
+
     /**
      * Affiche la description d'un etudiant (prenom, nom, ecole).
      */
     public void print() {
-        System.out.println(firstName+" "+lastName.toUpperCase());
+        System.out.println(firstName+" "+getLastName());
         System.out.println(school+" School");
     }
 }

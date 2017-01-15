@@ -7,11 +7,11 @@ public class SubContractor {
 	 * ---------------------------------
 	 */
     /** Prénom. */
-    String firstName;
+    private String firstName;
     /** Nom. */
-    String lastName;
+    private String lastName;
     /** Taux journalier. */
-    long dailyRate;
+    private long dailyRate;
 
 	/*
 	 * ---------------------------------
@@ -45,11 +45,27 @@ public class SubContractor {
 	 * ---------------------------------
 	 */
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName.toUpperCase();
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public long getDailyRate() {
+        return dailyRate;
+    }
+
     /**
      * Affiche la description d'un sous traitant (prenom, nom, taux journalier).
      */
     public void print() {
-        System.out.println(firstName+" "+lastName.toUpperCase());
+        System.out.println(firstName+" "+getLastName());
         System.out.println(dailyRate+"€/day");
     }
 }

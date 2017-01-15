@@ -7,13 +7,13 @@ public class Employee {
 	 * ---------------------------------
 	 */
     /** Prénom. */
-    String firstName;
+    private String firstName;
     /** Nom. */
-    String lastName;
+    private String lastName;
     /** Salaire mensuel. */
-    long salary;
+    private long salary;
     /** Jours de vacances restants. */
-    int holidays;
+    private int holidays;
 
 
 	/*
@@ -53,11 +53,35 @@ public class Employee {
 	 * ---------------------------------
 	 */
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName.toUpperCase();
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public long getSalary() {
+        return salary;
+    }
+
+    public int getHolidays() {
+        return holidays;
+    }
+
+    public void setHolidays(int holidays) {
+        this.holidays = holidays;
+    }
+
     /**
      * Affiche la description d'un employe (prenom, nom, salaire, jours de vacances).
      */
     public void print() {
-        System.out.println(firstName+" "+lastName.toUpperCase());
+        System.out.println(firstName+" "+getLastName());
         System.out.println(salary+"€/month, "+holidays+" days");
     }
 }
