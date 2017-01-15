@@ -20,17 +20,22 @@ public class Launcher {
                 ultraTopSecret
         };
 
+        Printer officePrinter = new Printer();
+        officePrinter.setName("Main printer of the office");
+
         // Affichage des données
-        printReport(printableElements);
+        printReport(printableElements, officePrinter);
     }
 
     /**
      * Permet l'impression d'un rapport.
      * @param elementsToPrint
      * 			Tableau d'éléments imprimables dont on veut afficher les donnees.
+     * @param printerToUse
+     *          Some printer to send report to.
      */
-    public static void printReport(Printable[] elementsToPrint) {
-        System.out.println("Great Report");
+    public static void printReport(Printable[] elementsToPrint, Printer printerToUse) {
+        System.out.println("Great Report that will be printed thanks to '"+printerToUse+"'");
         System.out.println("-------------------\n\n");
 
         for(int i = 0; i < elementsToPrint.length; i++) {
